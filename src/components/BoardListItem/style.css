@@ -1,0 +1,95 @@
+.board-list-item-box {
+  padding: 24px;
+  background-color: #fff;
+
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.board-list-item-box:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+  
+}
+
+/* 게시물 작성자프로필, 작성일자, 게시물내용 */
+.board-list-item-left {
+  flex: 1;
+
+}
+
+/* 게시물 작성자프로필, 작성일자 */
+.board-list-item-writer {
+  display: flex;
+}
+
+.board-list-item-profile {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-list-item-profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
+
+.board-list-item-writer-right {
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.board-list-item-writer-nickname {
+  margin-bottom: 2px;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 500;
+}
+
+.board-list-item-write-date {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 400;
+}
+
+/* 게시물 제목, 내용, 카운트수 */
+.board-list-item-title {
+  margin-top: 16px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.board-list-item-content {
+  margin-top: 5px;
+
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.board-list-item-count {
+  margin-top: 16px;
+
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* 게시물내용 이미지 */
+.board-list-item-right {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.baord-list-item-board-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  background-position: 50% 50%;
+  background-size: 100% 100%;
+}
