@@ -53,10 +53,10 @@ export default function BoardListItem({item}: Props) {
           </div>
         </div>
         <div className="board-list-item-title">
-          { title }
+          { title.length > 60 ? title.substring(0, 50) + '...' : title }
         </div>
         <div className="board-list-item-content">
-          { contents }
+          { contents.length > 350 ? contents.substring(0, 300) + '...' : contents }
         </div>
         <div className="board-list-item-count">
           { `댓글 ${commentCount} · 좋아요 ${favoriteCount} · 조회수 ${viewCount}` }

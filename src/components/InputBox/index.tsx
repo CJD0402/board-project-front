@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, KeyboardEvent } from 'react'
 import { INPUT_ICON } from 'src/constants';
 import './style.css';
 
@@ -12,11 +12,12 @@ interface props {
   error?: boolean;
   setValue: Dispatch<SetStateAction<string>>;
   buttonHandler?: () => void;
+  keyDownHandler?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 //         component         //
 // description: 인풋 상자 컴포넌트 //
-export default function InputBox({ label, type, placeholder, value, helper, icon, error, setValue, buttonHandler }: props) {
+export default function InputBox({ label, type, placeholder, value, helper, icon, error, setValue, buttonHandler, keyDownHandler }: props) {
   //         state         //
 
   //         function         //
@@ -25,6 +26,11 @@ export default function InputBox({ label, type, placeholder, value, helper, icon
   // description: 입력값 변경 이벤트 //
   const onChangeHandler = (value: string) => {
     setValue(value);
+  }
+  // description: 키보드 입력 이벤트 //
+  const onKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (!keyDownHandler) return;
+    keyDownHandler(event);
   }
   
   //         component         //
@@ -36,7 +42,7 @@ export default function InputBox({ label, type, placeholder, value, helper, icon
     <div className="input-box">
       <div className="input-box-label">{ label }</div>
       <div className={ error ? 'input-box-container-error' : 'input-box-container'}>
-        <input className="input" type={ type } placeholder={ placeholder } value={value} onChange={(event) => onChangeHandler(event.target.value) } />
+        <input className="input" type={ type } placeholder={ placeholder } value={value} onChange={(event) => onChangeHandler(event.target.value)} onKeyDown={onKeyDownHandler} />
         { icon && (
         <div className="input-box-icon" onClick={buttonHandler}>
           { icon === INPUT_ICON.ON ? (<div className="input-on-icon"></div>) :
