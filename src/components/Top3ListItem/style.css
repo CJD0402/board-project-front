@@ -1,4 +1,4 @@
-/* 최상위 box */
+ /* description: 최상위 box */
 .top3-list-item-box {
   width: 23.333333vw;
   height: 31.944444vw;
@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-/* 작성자 정보 */
+/* description: 작성자 정보 */
 .top3-list-item-writer {
   display: flex;
 }
@@ -54,7 +54,7 @@
   font-weight: 400;
 }
 
-/* 게시글 제목, 내용, 카운트수 */
+/* description: 게시글 제목, 내용, 카운트수 */
 .top3-list-item-title {
   color: #fff;
   font-size: 16px;

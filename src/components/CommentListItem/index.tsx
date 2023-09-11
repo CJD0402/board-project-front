@@ -27,7 +27,8 @@ export default function CommentListItem({ item }: Props) {
     const gap = Math.floor((nowDateNumber - writeDateNumber) / 1000);
     
     let result = '';
-    if (gap >= 3600) result = `${Math.floor(gap / 3600)}시간 전`;
+    if (gap >= 86400) result = `${Math.floor(gap / 86400)}일 전`;
+    if (gap < 86400) result = `${Math.floor(gap / 3600)}시간 전`;
     if (gap < 3600) result = `${Math.floor(gap / 60)}분 전`;
     if (gap < 60) result = `${gap}초 전`;
 

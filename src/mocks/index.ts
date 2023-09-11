@@ -380,7 +380,7 @@ export const commentListMock = [
 ]
 
 export const signInMock = {
-  email: 'email@email.com',
+  email: 'email3@email.com',
   password: '123456789'
 }
 

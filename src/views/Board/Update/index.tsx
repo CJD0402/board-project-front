@@ -6,6 +6,7 @@ import './style.css';
 import { GetBoardResponseDto } from 'src/interfaces/response/board';
 import ResponseDto from 'src/interfaces/response/response.dto';
 import { MAIN_PATH } from 'src/constants';
+import { getBoardRequest } from 'src/apis';
 
 //          component          //
 // description:  게시물 수정 화면 //
@@ -76,9 +77,14 @@ export default function BoardUpdate() {
 
   //          effect          //
   useEffect(() => {
-    setBoardTitle(boardUpdateMock.boardTitle);
-    setBoardContent(boardUpdateMock.boardCnotent);
-    setBoardImageUrl(boardUpdateMock.boardImage);
+    if (!boardNumber) {
+      alert('게시물번호가 잘못되었습니다.');
+      navigator(MAIN_PATH);
+      return;
+    }
+
+    setBoardNumber(boardNumber);
+    getBoardRequest(boardNumber).then(getBoardResponseHandler);
   }, [boardNumber]);
 
   //          render          //
@@ -97,7 +103,7 @@ export default function BoardUpdate() {
             <div className='image-upload-button' onClick={onImageUploadButtonClickHandler}>
               <div className="image-upload-icon"></div>
             </div>
-            <input type='file' accept='image/*' style={{ display: 'none' }} />
+            <input type='file' accept='image/*' style={{ display: 'none' }} onChange={onImageInputChangeHandler}/>
           </div>
         </div>
         {boardImageUrl && (
